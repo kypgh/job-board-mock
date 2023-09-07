@@ -11,6 +11,7 @@ import {
   LanguagesSelected,
 } from "@/components/dropdown-views/Languages";
 import Image from "next/image";
+import { H3 } from "@/components/Typography";
 
 const Outer = styled.footer`
   background-color: #230939;
@@ -25,11 +26,6 @@ const FooterLink = styled(Link)`
   transition: 0.3s all ease;
 `;
 
-const H3 = styled.h3`
-  font-size: 18px;
-  color: #f2b12f;
-`;
-
 const Footer = () => {
   return (
     <Outer>
@@ -39,7 +35,7 @@ const Footer = () => {
             <LanguagesSelected />
           </Dropdown>
           <Flex $direction="column" $gap={10} $align="flex-start">
-            <H3>For Job Seekers</H3>
+            <H3 $color="#f2b12f">For Job Seekers</H3>
             {jobSeekersItems.map((item, index) => (
               <FooterLink href={item.value} key={index}>
                 {item.label}
@@ -47,7 +43,7 @@ const Footer = () => {
             ))}
           </Flex>
           <Flex $direction="column" $gap={10} $align="flex-start">
-            <H3>For Employers</H3>
+            <H3 $color="#f2b12f">For Employers</H3>
             {employersItems.map((item, index) => (
               <FooterLink href={item.value} key={index}>
                 {item.label}
@@ -55,7 +51,7 @@ const Footer = () => {
             ))}
           </Flex>
           <Flex $direction="column" $gap={10} $align="flex-start">
-            <H3>Legal Documents</H3>
+            <H3 $color="#f2b12f">Legal Documents</H3>
             {legalDocs.map((item, index) => (
               <FooterLink href={item.value} key={index}>
                 {item.label}
