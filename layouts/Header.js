@@ -2,7 +2,7 @@ import Head from "next/head";
 import React from "react";
 
 const Header = ({
-  title = "Gatito Atomico",
+  title = "Job Board",
   description = "Description",
   favicon = "/favicon.ico",
 }) => {
