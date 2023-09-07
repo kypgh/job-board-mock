@@ -1,11 +1,5 @@
 import useOnClickAway from "@/utils/hooks/useOnClickAway";
-import React, {
-  cloneElement,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Outer = styled.div`
@@ -18,7 +12,6 @@ const Absolute = styled.div`
   position: fixed;
   max-height: 500px;
   overflow-y: auto;
-  padding: 10px;
 `;
 
 const DefaultDropdown = () => <div>No Dropdown Passed</div>;
@@ -26,10 +19,10 @@ const DefaultDropdown = () => <div>No Dropdown Passed</div>;
 const calculatePosition = (bottom, right) => {
   const { innerHeight, innerWidth } = window;
   if (bottom > innerHeight) {
-    bottom = innerHeight - 60;
+    bottom = innerHeight - 20;
   }
   if (right > innerWidth) {
-    right = innerWidth - 60;
+    right = innerWidth - 20;
   }
   return { bottom, right };
 };
@@ -54,14 +47,12 @@ const Dropdown = ({ children, DropdownComponent = DefaultDropdown }) => {
     };
   }, []);
 
-  // Create a higher-order component that forwards the ref
-  const ChildrenWithRef = forwardRef((props, ref) =>
-    cloneElement(children, props)
-  );
-
   return (
     <Outer>
-      <ChildrenWithRef ref={ref} />
+      <div ref={ref} onClick={() => setIsOpen(!isOpen)}>
+        {children}
+      </div>
+
       {isOpen && (
         <Absolute
           ref={(r) => {
