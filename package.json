@@ -9,8 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "formik": "^2.4.3",
     "next": "13.4.19",
+    "prop-types": "^15.8.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "styled-components": "^6.0.7",
+    "yup": "^1.2.0"
   }
 }
