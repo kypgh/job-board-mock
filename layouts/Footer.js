@@ -1,15 +1,16 @@
 import { Container, Flex } from "@/components/generic";
 import React from "react";
 import styled from "styled-components";
-import jobSeekersItems from "@/constants/jobSeekersItems";
-import employersItems from "@/constants/employersItems";
-import legalDocs from "@/constants/legalDocs";
+import jobSeekersItems from "@/configs/jobSeekersItems";
+import employersItems from "@/configs/employersItems";
+import legalDocs from "@/configs/legalDocs";
 import Link from "next/link";
 import Dropdown from "@/components/Dropdown";
 import {
   LanguagesList,
   LanguagesSelected,
 } from "@/components/dropdown-views/Languages";
+import Image from "next/image";
 
 const Outer = styled.footer`
   background-color: #230939;
@@ -60,6 +61,76 @@ const Footer = () => {
                 {item.label}
               </FooterLink>
             ))}
+          </Flex>
+        </Flex>
+        <Flex $justify="center" $align="flex-start" $gap={80} $mt={50}>
+          <Flex $direction="column" $align="flex-start" $gap={40}>
+            <Flex $direction="column" $gap={10} $align="flex-start">
+              <p>Find us on social media:</p>
+              <Flex $gap={10}>
+                <Image
+                  src="/images/facebook.svg"
+                  width={40}
+                  height={40}
+                  alt="icon"
+                />
+                <Image
+                  src="/images/youtube.svg"
+                  width={40}
+                  height={40}
+                  alt="icon"
+                />
+                <Image
+                  src="/images/twitter.svg"
+                  width={40}
+                  height={40}
+                  alt="icon"
+                />
+                <Image
+                  src="/images/linkedin.svg"
+                  width={40}
+                  height={40}
+                  alt="icon"
+                />
+                <Image
+                  src="/images/instagram.svg"
+                  width={40}
+                  height={40}
+                  alt="icon"
+                />
+              </Flex>
+            </Flex>
+            <Flex $direction="column" $gap={20}>
+              <p>© 2023 Monster Worldwide</p>
+              <p>Looking for Monster Cable?</p>
+            </Flex>
+          </Flex>
+          <Flex $direction="column" $align="flex-start" $gap={40}>
+            <div>
+              <p>Get the Monster App</p>
+              <Flex $gap={10}>
+                <Image
+                  src="/mock-images/app-store.png"
+                  width={150}
+                  height={60}
+                  alt="appstore"
+                />
+                <Image
+                  src="/mock-images/google-play.png"
+                  width={150}
+                  height={45}
+                  alt="googleplay"
+                />
+              </Flex>
+            </div>
+            <div>
+              <Image
+                src="/mock-images/trust.svg"
+                width={150}
+                height={60}
+                alt="icon"
+              />
+            </div>
           </Flex>
         </Flex>
       </Container>

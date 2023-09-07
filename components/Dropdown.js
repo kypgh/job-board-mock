@@ -8,7 +8,7 @@ const Outer = styled.div`
   padding: 5px;
 `;
 
-const Absolute = styled.div`
+const Fixed = styled.div`
   position: fixed;
   max-height: 500px;
   overflow-y: auto;
@@ -54,7 +54,7 @@ const Dropdown = ({ children, DropdownComponent = DefaultDropdown }) => {
       </div>
 
       {isOpen && (
-        <Absolute
+        <Fixed
           ref={(r) => {
             if (!r) return;
             // get the bottom and left of the button
@@ -79,7 +79,7 @@ const Dropdown = ({ children, DropdownComponent = DefaultDropdown }) => {
           }}
         >
           {DropdownComponent}
-        </Absolute>
+        </Fixed>
       )}
     </Outer>
   );
