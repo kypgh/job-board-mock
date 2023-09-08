@@ -11,11 +11,17 @@ type ContainerTypes = {
   $pl?: number;
   $pr?: number;
   $pall?: number;
+  $background?: string;
+  $border?: string;
+  $bt?: string;
+  $bb?: string;
+  $bl?: string;
+  $br?: string;
 };
 
 // prettier-ignore
 export const Container = styled.div.attrs<ContainerTypes>(
-  ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall }) => ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, })
+  ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $background, $border, $bt, $bb, $bl, $br,  }) => ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $background, $border, $bt, $bb, $bl, $br, })
 )`
   max-width: 1140px;
   margin: 0 auto;
@@ -30,6 +36,12 @@ export const Container = styled.div.attrs<ContainerTypes>(
   ${({ $pl }) => $pl && `padding-left: ${$pl}px;`}
   ${({ $pr }) => $pr && `padding-right: ${$pr}px;`}
   ${({ $pall }) => $pall && `padding: ${$pall}px;`}
+  ${({ $background }) => $background && `background-color: ${$background};`}
+  ${({ $border }) => $border && `border: ${$border};`}
+  ${({ $bt }) => $bt && `border-top: ${$bt};`}
+  ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
+  ${({ $bl }) => $bl && `border-left: ${$bl};`}
+  ${({ $br }) => $br && `border-right: ${$br};`}
 `;
 
 type FlexProps = {
@@ -86,12 +98,20 @@ export const Flex = styled.div.attrs<FlexProps>(
 
 type BackgroundProps = {
   $color?: string;
+  $border?: string;
+  $bt?: string;
+  $bb?: string;
+  $bl?: string;
+  $br?: string;
 };
 
 export const Background = styled.div.attrs<BackgroundProps>(
-  ({ $color = "#ffffff" }) => ({
-    $color,
-  })
+  ({ $color = "#ffffff", $border, $bt, $bb, $bl, $br, }) => ({ $color, $border, $bt, $bb, $bl, $br, })
 )`
   background-color: ${({ $color }) => $color};
+  ${({ $border }) => $border && `border: ${$border};`}
+  ${({ $bt }) => $bt && `border-top: ${$bt};`}
+  ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
+  ${({ $bl }) => $bl && `border-left: ${$bl};`}
+  ${({ $br }) => $br && `border-right: ${$br};`}
 `;
