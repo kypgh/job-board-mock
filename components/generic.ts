@@ -103,10 +103,54 @@ type BackgroundProps = {
   $bb?: string;
   $bl?: string;
   $br?: string;
+  $mb?: number;
+  $mt?: number;
+  $ml?: number;
+  $mr?: number;
+  $mall?: number;
+  $pb?: number;
+  $pt?: number;
+  $pl?: number;
+  $pr?: number;
+  $pall?: number;
 };
 
 export const Background = styled.div.attrs<BackgroundProps>(
-  ({ $color = "#ffffff", $border, $bt, $bb, $bl, $br, }) => ({ $color, $border, $bt, $bb, $bl, $br, })
+  ({
+    $color = "#ffffff",
+    $border,
+    $bt,
+    $bb,
+    $bl,
+    $br,
+    $mb,
+    $mt,
+    $ml,
+    $mr,
+    $mall,
+    $pb,
+    $pt,
+    $pl,
+    $pr,
+    $pall,
+  }) => ({
+    $color,
+    $border,
+    $bt,
+    $bb,
+    $bl,
+    $br,
+    $mb,
+    $mt,
+    $ml,
+    $mr,
+    $mall,
+    $pb,
+    $pt,
+    $pl,
+    $pr,
+    $pall,
+  })
 )`
   background-color: ${({ $color }) => $color};
   ${({ $border }) => $border && `border: ${$border};`}
@@ -114,4 +158,14 @@ export const Background = styled.div.attrs<BackgroundProps>(
   ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
   ${({ $bl }) => $bl && `border-left: ${$bl};`}
   ${({ $br }) => $br && `border-right: ${$br};`}
+  ${({ $mb }) => $mb && `margin-bottom: ${$mb}px;`}
+  ${({ $mt }) => $mt && `margin-top: ${$mt}px;`}
+  ${({ $ml }) => $ml && `margin-left: ${$ml}px;`}
+  ${({ $mr }) => $mr && `margin-right: ${$mr}px;`}
+  ${({ $mall }) => $mall && `margin: ${$mall}px;`}
+  ${({ $pb }) => $pb && `padding-bottom: ${$pb}px;`}
+  ${({ $pt }) => $pt && `padding-top: ${$pt}px;`}
+  ${({ $pl }) => $pl && `padding-left: ${$pl}px;`}
+  ${({ $pr }) => $pr && `padding-right: ${$pr}px;`}
+  ${({ $pall }) => $pall && `padding: ${$pall}px;`}
 `;

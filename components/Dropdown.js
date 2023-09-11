@@ -30,6 +30,8 @@ const calculatePosition = (bottom, right) => {
 const Dropdown = ({ children, DropdownComponent = DefaultDropdown }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const type = typeof DropdownComponent;
+
   const ref = useRef(null);
   const dropRef = useRef(null);
 
@@ -78,7 +80,7 @@ const Dropdown = ({ children, DropdownComponent = DefaultDropdown }) => {
             dropRef.current = r;
           }}
         >
-          {DropdownComponent}
+          {type === "function" ? <DropdownComponent /> : DropdownComponent}
         </Fixed>
       )}
     </Outer>
