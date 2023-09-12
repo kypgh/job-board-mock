@@ -97,8 +97,10 @@ export const Flex = styled.div.attrs<FlexProps>(
 `;
 
 type BackgroundProps = {
+  $img?: string;
   $color?: string;
   $border?: string;
+  $radius?: number;
   $bt?: string;
   $bb?: string;
   $bl?: string;
@@ -115,45 +117,18 @@ type BackgroundProps = {
   $pall?: number;
 };
 
+// prettier-ignore
 export const Background = styled.div.attrs<BackgroundProps>(
   ({
-    $color = "#ffffff",
-    $border,
-    $bt,
-    $bb,
-    $bl,
-    $br,
-    $mb,
-    $mt,
-    $ml,
-    $mr,
-    $mall,
-    $pb,
-    $pt,
-    $pl,
-    $pr,
-    $pall,
+    $img, $color = "#ffffff", $border, $bt, $bb, $bl, $br, $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $radius,
   }) => ({
-    $color,
-    $border,
-    $bt,
-    $bb,
-    $bl,
-    $br,
-    $mb,
-    $mt,
-    $ml,
-    $mr,
-    $mall,
-    $pb,
-    $pt,
-    $pl,
-    $pr,
-    $pall,
+    $img, $color, $border, $bt, $bb, $bl, $br, $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $radius,
   })
 )`
+  ${({ $img }) => $img && `background-image: url(${$img});`};
   background-color: ${({ $color }) => $color};
   ${({ $border }) => $border && `border: ${$border};`}
+  ${({ $radius }) => $radius && `border-radius: ${$radius}px;`} 
   ${({ $bt }) => $bt && `border-top: ${$bt};`}
   ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
   ${({ $bl }) => $bl && `border-left: ${$bl};`}
