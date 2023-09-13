@@ -84,7 +84,7 @@ const H3 = styled.h3.attrs<TypographyProps>( ({ $color = "#000000", $align = "ce
 
 interface LiProps {
   children: ReactNode;
-  Prefix: ReactNode | FC | string | number | Function;
+  Prefix: ReactNode | React.FC | string | number | (() => React.ReactElement);
   position?: "center" | "top";
 }
 
@@ -111,11 +111,21 @@ const PrefixSC = styled.span.attrs<{ $position: "center" | "top" }>(
   justify-content: center;
 `;
 
+const PrefixOrNode: React.FC<{ Prefix: React.FC | React.ReactNode }> = ({
+  Prefix,
+}) => {
+  if (typeof Prefix === "function") {
+    const Component = Prefix as React.FC; // Type cast here
+    return <Component />;
+  }
+  return <>{Prefix}</>;
+};
+
 const Li = ({ children, Prefix, position = "center" }: LiProps) => {
   return (
     <LiSC>
       <PrefixSC $position={position}>
-        {typeof Prefix == "function" ? <Prefix /> : Prefix}
+        {typeof Prefix === "function" ? (Prefix as Function)() : Prefix}
       </PrefixSC>
       {children}
     </LiSC>
@@ -124,7 +134,7 @@ const Li = ({ children, Prefix, position = "center" }: LiProps) => {
 
 interface ULProps {
   children: ReactNode;
-  Prefix: ReactNode | string | number | Function | null;
+  Prefix: ReactNode | React.FC | string | number | (() => React.ReactElement);
   position?: "center" | "top";
 }
 
