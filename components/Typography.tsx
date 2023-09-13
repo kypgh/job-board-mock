@@ -84,7 +84,7 @@ const H3 = styled.h3.attrs<TypographyProps>( ({ $color = "#000000", $align = "ce
 
 interface LiProps {
   children: ReactNode;
-  Prefix: ReactNode | string | number | Function | null;
+  Prefix: ReactNode | string | number | Function;
   position?: "center" | "top";
 }
 
@@ -115,7 +115,7 @@ const Li = ({ children, Prefix, position = "center" }: LiProps) => {
   return (
     <LiSC>
       <PrefixSC $position={position}>
-        {typeof Prefix === "function" ? <Prefix /> : Prefix}
+        {typeof Prefix == "function" ? <Prefix /> : Prefix}
       </PrefixSC>
       {children}
     </LiSC>

@@ -52,7 +52,13 @@ const CompaniesResearching = () => {
       <Flex $justify="space-between" $align="flex-start" $gap={80}>
         <Left>
           <ImageWrapper>
-            <Image src="/mock-images/mock-4.jpg" width={450} height={450} />
+            <Image
+              src="/mock-images/mock-4.jpg"
+              width={450}
+              height={450}
+              alt=""
+              priority
+            />
           </ImageWrapper>
         </Left>
         <Right $direction="column" $gap={20} $align="flex-start">

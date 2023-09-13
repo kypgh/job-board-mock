@@ -118,7 +118,13 @@ const PackageItem = ({ data }) => {
               $pb={15}
             >
               {features.map(({ Icon, title }, idx) => (
-                <Flex $direction="column" $gap={10} $align="center" key={idx}>
+                <Flex
+                  $direction="column"
+                  $gap={10}
+                  $align="center"
+                  $width="70px"
+                  key={idx}
+                >
                   {typeof Icon === "string" ? (
                     <Image src={Icon} width={50} height={50} alt="image" />
                   ) : (
@@ -130,7 +136,6 @@ const PackageItem = ({ data }) => {
                     style={{
                       textAlign: "center",
                       fontSize: "12px",
-                      maxWidth: "70px",
                     }}
                   >
                     {title}
