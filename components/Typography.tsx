@@ -111,21 +111,11 @@ const PrefixSC = styled.span.attrs<{ $position: "center" | "top" }>(
   justify-content: center;
 `;
 
-const PrefixOrNode: React.FC<{ Prefix: React.FC | React.ReactNode }> = ({
-  Prefix,
-}) => {
-  if (typeof Prefix === "function") {
-    const Component = Prefix as React.FC; // Type cast here
-    return <Component />;
-  }
-  return <>{Prefix}</>;
-};
-
 const Li = ({ children, Prefix, position = "center" }: LiProps) => {
   return (
     <LiSC>
       <PrefixSC $position={position}>
-        {typeof Prefix === "function" ? (Prefix as Function)() : Prefix}
+        {typeof Prefix === "function" ? <Prefix /> : Prefix}
       </PrefixSC>
       {children}
     </LiSC>
