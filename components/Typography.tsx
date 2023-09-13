@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { ReactElement, ReactNode } from "react";
+import React, { FC, ReactElement, ReactNode } from "react";
 
 type TypographyProps = {
   $color?: string;
@@ -84,7 +84,7 @@ const H3 = styled.h3.attrs<TypographyProps>( ({ $color = "#000000", $align = "ce
 
 interface LiProps {
   children: ReactNode;
-  Prefix: ReactNode | string | number | Function;
+  Prefix: ReactNode | FC | string | number | Function;
   position?: "center" | "top";
 }
 
