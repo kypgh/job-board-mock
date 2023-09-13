@@ -9,6 +9,8 @@ import {
 } from "../../components/mock/BottomForPackages";
 import Why from "../../components/mock/Why";
 import Faq from "../../components/mock/Faq";
+import SeeDifference from "../../components/mock/SeeDifference";
+import GetBetter from "../../components/mock/GetBetter";
 
 const mockArr = [
   {
@@ -95,6 +97,8 @@ const ResumeHelpView = () => {
       </Background>
       <Why />
       <Faq />
+      <SeeDifference />
+      <GetBetter />
     </>
   );
 };

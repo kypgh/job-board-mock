@@ -12,6 +12,10 @@ const CusH2 = styled(H2).attrs({
   },
 })``;
 
+const FlexInner = styled(Flex)`
+  flex: 1;
+`;
+
 const Why = () => {
   return (
     <Background $color="#f2f2f2">
@@ -20,17 +24,17 @@ const Why = () => {
           WHY MONSTER
         </H1>
         <Flex $justify="space-evenly" $align="stretch" $gap={20}>
-          <Flex $direction="column" $align="center" $gap={10}>
+          <FlexInner $direction="column" $align="center" $gap={10}>
             <BiLike size={50} color="#642891" />
             <CusH2>100%</CusH2>
             <p>satisfaction or we'll rewrite it for free</p>
-          </Flex>
-          <Flex $direction="column" $align="center" $gap={10}>
+          </FlexInner>
+          <FlexInner $direction="column" $align="center" $gap={10}>
             <AiOutlineIdcard size={50} color="#642891" />
             <CusH2>11M+</CusH2>
             <p>resumes submitted each year</p>
-          </Flex>
-          <Flex $direction="column" $align="center" $gap={10}>
+          </FlexInner>
+          <FlexInner $direction="column" $align="center" $gap={10}>
             <BiTrophy size={50} color="#642891" />
             <CusH2>
               20+{" "}
@@ -43,7 +47,7 @@ const Why = () => {
               </span>
             </CusH2>
             <p>Industry expertise</p>
-          </Flex>
+          </FlexInner>
         </Flex>
       </Container>
     </Background>
