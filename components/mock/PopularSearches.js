@@ -18,7 +18,7 @@ const Item = styled.div`
   background-color: #3d2462;
 
   &:hover {
-    background-color: transparent;
+    background-color: #230939;
     border: 2px solid #3d2462;
   }
 `;

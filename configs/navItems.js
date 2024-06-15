@@ -2,7 +2,7 @@ import { internalLinks } from "./links";
 
 export default [
   {
-    value: internalLinks.findJobs,
+    value: internalLinks.home,
     label: "Find Jobs",
   },
   {

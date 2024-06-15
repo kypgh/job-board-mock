@@ -11,11 +11,17 @@ type ContainerTypes = {
   $pl?: number;
   $pr?: number;
   $pall?: number;
+  $background?: string;
+  $border?: string;
+  $bt?: string;
+  $bb?: string;
+  $bl?: string;
+  $br?: string;
 };
 
 // prettier-ignore
 export const Container = styled.div.attrs<ContainerTypes>(
-  ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall }) => ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, })
+  ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $background, $border, $bt, $bb, $bl, $br,  }) => ({ $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $background, $border, $bt, $bb, $bl, $br, })
 )`
   max-width: 1140px;
   margin: 0 auto;
@@ -30,6 +36,12 @@ export const Container = styled.div.attrs<ContainerTypes>(
   ${({ $pl }) => $pl && `padding-left: ${$pl}px;`}
   ${({ $pr }) => $pr && `padding-right: ${$pr}px;`}
   ${({ $pall }) => $pall && `padding: ${$pall}px;`}
+  ${({ $background }) => $background && `background-color: ${$background};`}
+  ${({ $border }) => $border && `border: ${$border};`}
+  ${({ $bt }) => $bt && `border-top: ${$bt};`}
+  ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
+  ${({ $bl }) => $bl && `border-left: ${$bl};`}
+  ${({ $br }) => $br && `border-right: ${$br};`}
 `;
 
 type FlexProps = {
@@ -85,13 +97,50 @@ export const Flex = styled.div.attrs<FlexProps>(
 `;
 
 type BackgroundProps = {
+  $img?: string;
   $color?: string;
+  $border?: string;
+  $radius?: number;
+  $bt?: string;
+  $bb?: string;
+  $bl?: string;
+  $br?: string;
+  $mb?: number;
+  $mt?: number;
+  $ml?: number;
+  $mr?: number;
+  $mall?: number;
+  $pb?: number;
+  $pt?: number;
+  $pl?: number;
+  $pr?: number;
+  $pall?: number;
 };
 
+// prettier-ignore
 export const Background = styled.div.attrs<BackgroundProps>(
-  ({ $color = "#ffffff" }) => ({
-    $color,
+  ({
+    $img, $color = "#ffffff", $border, $bt, $bb, $bl, $br, $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $radius,
+  }) => ({
+    $img, $color, $border, $bt, $bb, $bl, $br, $mb, $mt, $ml, $mr, $mall, $pb, $pt, $pl, $pr, $pall, $radius,
   })
 )`
+  ${({ $img }) => $img && `background-image: url(${$img});`};
   background-color: ${({ $color }) => $color};
+  ${({ $border }) => $border && `border: ${$border};`}
+  ${({ $radius }) => $radius && `border-radius: ${$radius}px;`} 
+  ${({ $bt }) => $bt && `border-top: ${$bt};`}
+  ${({ $bb }) => $bb && `border-bottom: ${$bb};`}
+  ${({ $bl }) => $bl && `border-left: ${$bl};`}
+  ${({ $br }) => $br && `border-right: ${$br};`}
+  ${({ $mb }) => $mb && `margin-bottom: ${$mb}px;`}
+  ${({ $mt }) => $mt && `margin-top: ${$mt}px;`}
+  ${({ $ml }) => $ml && `margin-left: ${$ml}px;`}
+  ${({ $mr }) => $mr && `margin-right: ${$mr}px;`}
+  ${({ $mall }) => $mall && `margin: ${$mall}px;`}
+  ${({ $pb }) => $pb && `padding-bottom: ${$pb}px;`}
+  ${({ $pt }) => $pt && `padding-top: ${$pt}px;`}
+  ${({ $pl }) => $pl && `padding-left: ${$pl}px;`}
+  ${({ $pr }) => $pr && `padding-right: ${$pr}px;`}
+  ${({ $pall }) => $pall && `padding: ${$pall}px;`}
 `;

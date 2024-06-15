@@ -1,12 +1,12 @@
 import { Container, Flex } from "@/components/generic";
 import React from "react";
 import styled from "styled-components";
-import navItems from "@/constants/navItems";
+import navItems from "@/configs/navItems";
 import { logo } from "@/configs/images";
 import Image from "next/image";
 import { PrimaryBtn, SecondaryBtn } from "@/components/Buttons";
 import Link from "next/link";
-import { internalLinks } from "@/constants/links";
+import { internalLinks } from "@/configs/links";
 import { BsArrowRight } from "react-icons/bs";
 
 const Nav = styled.nav`

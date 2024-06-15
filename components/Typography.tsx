@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import React, { FC, ReactElement, ReactNode } from "react";
 
 type TypographyProps = {
   $color?: string;
@@ -81,4 +82,66 @@ const H3 = styled.h3.attrs<TypographyProps>( ({ $color = "#000000", $align = "ce
   ${({ $pall }) => $pall && `padding: ${$pall}px;`}
 `;
 
-export { H1, H2, H3 };
+interface LiProps {
+  children: ReactNode;
+  Prefix: ReactNode | React.FC | string | number | (() => React.ReactElement);
+  position?: "center" | "top";
+}
+
+const LiSC = styled.li`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 20px;
+  position: relative;
+`;
+
+const PrefixSC = styled.span.attrs<{ $position: "center" | "top" }>(
+  ({ $position }) => ({ $position })
+)`
+  position: absolute;
+  left: 0;
+  top: ${({ $position }) => ($position === "center" ? "50%" : "5px")};
+  transform: ${({ $position }) => $position === "center" && "translateY(-50%)"};
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Li = ({ children, Prefix, position = "center" }: LiProps) => {
+  return (
+    <LiSC>
+      <PrefixSC $position={position}>
+        {typeof Prefix === "function" ? <Prefix /> : Prefix}
+      </PrefixSC>
+      {children}
+    </LiSC>
+  );
+};
+
+interface ULProps {
+  children: ReactNode;
+  Prefix: ReactNode | React.FC | string | number | (() => React.ReactElement);
+  position?: "center" | "top";
+}
+
+const Ul = ({ children, Prefix, position }: ULProps) => {
+  return (
+    <>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === Li) {
+          return React.cloneElement(child as ReactElement, {
+            Prefix,
+            position,
+          });
+        }
+        return child;
+      })}
+    </>
+  );
+};
+
+export { H1, H2, H3, Li, Ul };
